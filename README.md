@@ -1,6 +1,5 @@
 # Surl
-> make long url to short url by baidu api
-
+> php plugin for make long url to short url
 ## Install
 ```
 composer require bingher/surl dev-master
