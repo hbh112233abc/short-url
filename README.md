@@ -9,25 +9,37 @@ composer require bingher/surl dev-master
 ## Example
 ```
 <?php
-use bingher\url\Surl;
-
-$surl     = new Surl('baidu api token');
+require_once __DIR__ . '/vendor/autoload.php';
+$baidu = [
+    'driver'=>'baidu',
+    'app_key'=>'your token'
+];
+$sina = [
+    'driver'=>'sina',
+    'app_key'=>'your appKey'
+];
+$surl = new \bingher\url\Surl($sina);
 
 /*create short url*/
-$longUrl  = 'http://www.2vm.net.cn';
+$longUrl = 'http://www.2vm.net.cn';
+var_dump('longUrl:');
 var_dump($longUrl);
 
 $shortUrl = $surl->create($longUrl);
 if ($shortUrl === false) {
+    var_dump('create short url error:');
     var_dump($surl->getError());
 }
-var_dump($shorUrl);
+var_dump('shortUrl:');
+var_dump($shortUrl);
 
 /*query long url from short url*/
 $checkLongUrl = $surl->query($shortUrl);
 if ($checkLongUrl === false) {
+    var_dump('query short url error:');
     var_dump($surl->getError());
 }
+var_dump('shortUrl:'.$shortUrl.' expand long url:');
 var_dump($checkLongUrl);
 ```
 
