@@ -1,6 +1,13 @@
 <?php
 namespace bingher\url\driver;
 
+/**
+ * 驱动公用基础类
+ * 主要提供以下公用方法:
+ * 1.get请求
+ * 2.post请求
+ * 3.getError获取错误信息
+ */
 abstract class Base
 {
     protected $baseUri = '';

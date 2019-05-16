@@ -1,6 +1,10 @@
 <?php
 namespace bingher\url\driver;
 
+/**
+ * 新浪微博短地址
+ * 接口参考文档:https://open.weibo.com/wiki/Short_url/shorten
+ */
 class Sina extends Base implements Driver
 {
     protected $baseUri = 'http://api.t.sina.com.cn/short_url';
