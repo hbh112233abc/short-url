@@ -2,11 +2,11 @@
 require_once __DIR__ . '/vendor/autoload.php';
 $baidu = [
     'driver'=>'baidu',
-    'app_key'=>'8d9d76e891df103039677e4a5d32e80d'
+    'app_key'=>'your token'
 ];
 $sina = [
     'driver'=>'sina',
-    'app_key'=>'3818214747'
+    'app_key'=>'your appKey'
 ];
 $surl = new \bingher\url\Surl($sina);
 
