@@ -1,5 +1,5 @@
 <?php
-namespace bingher\url\driver;
+namespace bingher\surl\driver;
 
 /**
  * 新浪微博短地址

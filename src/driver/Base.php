@@ -1,5 +1,5 @@
 <?php
-namespace bingher\url\driver;
+namespace bingher\surl\driver;
 
 /**
  * 驱动公用基础类

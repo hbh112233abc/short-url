@@ -17,7 +17,7 @@ $sina = [
     'driver'=>'sina',
     'app_key'=>'your appKey'
 ];
-$surl = new \bingher\url\Surl($sina);
+$surl = new \bingher\surl\Surl($sina);
 
 /*create short url*/
 $longUrl = 'http://www.2vm.net.cn';

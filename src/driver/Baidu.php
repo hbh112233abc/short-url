@@ -1,5 +1,5 @@
 <?php
-namespace bingher\url\driver;
+namespace bingher\surl\driver;
 
 /**
  * 百度短地址驱动

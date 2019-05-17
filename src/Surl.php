@@ -1,5 +1,5 @@
 <?php
-namespace bingher\url;
+namespace bingher\surl;
 
 class Surl
 {
