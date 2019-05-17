@@ -2,7 +2,7 @@
 > php plugin for make long url to short url
 ## Install
 ```
-composer require bingher/surl
+composer require bingher/short-url
 ```
 
 ## Example
