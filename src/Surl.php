@@ -11,7 +11,7 @@ class Surl
             $this->driver = $config['driver'];
         }
 
-        $namespace = '\\bingher\\url\\driver\\';
+        $namespace = '\\bingher\\surl\\driver\\';
 
         if (empty($config['app_key'])) {
             throw new \Exception('app_key not found');
