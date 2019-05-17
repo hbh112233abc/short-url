@@ -9,7 +9,7 @@
             "email": "hbh112233abc@163.com"
         }
     ],
-    "minimum-stability": "1.0.2",
+    "minimum-stability": "stable",
     "require": {
         "php": ">=5.6.0"
     },
