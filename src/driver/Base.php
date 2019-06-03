@@ -20,10 +20,6 @@ abstract class Base
             $this->appKey = $appKey;
         }
 
-        if (empty($this->appKey)) {
-            throw new \Exception('appKey nou found');
-        }
-
         $this->headers = [
             'Content-Type:application/json',
         ];

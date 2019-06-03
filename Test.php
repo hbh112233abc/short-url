@@ -1,33 +1,39 @@
 <?php
 require_once __DIR__ . '/vendor/autoload.php';
-$baidu = [
-    'driver'=>'baidu',
-    'app_key'=>'your token'
-];
-$sina = [
-    'driver'=>'sina',
-    'app_key'=>'your appKey'
-];
-$surl = new \bingher\surl\Surl($sina);
 
-/*create short url*/
+$drivers = [
+    [
+        'driver'=>'baidu',
+        'app_key'=>'baidu api token'
+    ],
+    [
+        'driver'=>'sina',
+        'app_key'=>'weibo api app_key'
+    ],
+    [
+        'driver'=>'dlj',
+        'app_key'=>''
+    ]
+];
+
+// include_once __DIR__.'/test_account.php';
+
 $longUrl = 'http://www.2vm.net.cn';
-var_dump('longUrl:');
-var_dump($longUrl);
 
-$shortUrl = $surl->create($longUrl);
-if ($shortUrl === false) {
-    var_dump('create short url error:');
-    var_dump($surl->getError());
+foreach ($drivers as $k => $v) {
+    var_dump('=============[driver:'.$v['driver'].']=============');
+    $surl = new \bingher\surl\Surl($v);
+    var_dump('[+] longUrl:'.$longUrl);
+    $shortUrl = $surl->create($longUrl);
+    if ($shortUrl === false) {
+        var_dump('[-] create short url error:'.$surl->getError());
+    } else {
+        var_dump('shortUrl:'.$shortUrl);
+    }
+    $checkLongUrl = $surl->query($shortUrl);
+    if ($checkLongUrl === false) {
+        var_dump('[-] query short url error:'.$surl->getError());
+    } else {
+        var_dump('[+] shortUrl:'.$shortUrl.' expand long url:'.$checkLongUrl);
+    }
 }
-var_dump('shortUrl:');
-var_dump($shortUrl);
-
-/*query long url from short url*/
-$checkLongUrl = $surl->query($shortUrl);
-if ($checkLongUrl === false) {
-    var_dump('query short url error:');
-    var_dump($surl->getError());
-}
-var_dump('shortUrl:'.$shortUrl.' expand long url:');
-var_dump($checkLongUrl);

@@ -13,10 +13,6 @@ class Surl
 
         $namespace = '\\bingher\\surl\\driver\\';
 
-        if (empty($config['app_key'])) {
-            throw new \Exception('app_key not found');
-        }
-
         $appKey = $config['app_key'];
 
         $className = false !== strpos($this->driver, '\\') ? $this->driver : $namespace . ucwords($this->driver);

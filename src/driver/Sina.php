@@ -10,6 +10,20 @@ class Sina extends Base implements Driver
     protected $baseUri = 'http://api.t.sina.com.cn/short_url';
     protected $appKey = '';
 
+    public function __construct($appKey)
+    {
+        parent::__construct($appKey);
+
+        if (empty($this->appKey)) {
+            throw new \Exception('appKey nou found');
+        }
+    }
+
+    /**
+     * 生成短链接
+     * @param  string $longUrl 长链接
+     * @return string          短链接
+     */
     public function create($longUrl)
     {
         $api = $this->baseUri.'/shorten.json';
@@ -25,6 +39,11 @@ class Sina extends Base implements Driver
         return false;
     }
 
+    /**
+     * 短链接还原
+     * @param  string $shortUrl 短链接
+     * @return string           长链接
+     */
     public function query($shortUrl)
     {
         $api = $this->baseUri.'/expand.json';

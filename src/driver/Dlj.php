@@ -2,26 +2,21 @@
 namespace bingher\surl\driver;
 
 /**
- * 百度短地址驱动
- * 接口文档:https://dwz.cn/console/apidoc
+ * 点链接(dlj.biz)短地址驱动
+ * 接口文档:https://dlj.biz/doc
  */
-class Baidu extends Base implements Driver
+class Dlj extends Base implements Driver
 {
-    protected $baseUri = 'https://dwz.cn/admin/v2';
+    protected $baseUri = 'https://dlj.biz/api';
     protected $appKey = '';
     protected $headers;
     protected $error;
-    public function __construct($appKey)
+    public function __construct($appKey = '')
     {
         parent::__construct($appKey);
 
-        if (empty($this->appKey)) {
-            throw new \Exception('appKey nou found');
-        }
-
         $this->headers = [
-            'Content-Type:application/json',
-            'Token:' . $this->appKey,
+            'Content-Type:application/json'
         ];
     }
 
