@@ -6,6 +6,6 @@ namespace bingher\surl\driver;
  */
 interface Driver
 {
-    public function create($longUrl);
+    public function create($longUrl,$validity);
     public function query($shortUrl);
 }

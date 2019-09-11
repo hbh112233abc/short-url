@@ -4,7 +4,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 $drivers = [
     [
         'driver'=>'baidu',
-        'app_key'=>'baidu api token'
+        'app_key'=>'baidu api token',
+        'validity' => '1-year', //有效期 永久:long-term,1年:1-year
     ],
     [
         'driver'=>'sina',

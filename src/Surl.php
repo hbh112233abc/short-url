@@ -4,6 +4,7 @@ namespace bingher\surl;
 class Surl
 {
     protected $driver = 'Sina';
+    protected $validity;
     protected $hander;
     public function __construct($config = [])
     {
@@ -21,6 +22,8 @@ class Surl
             throw new \ClassNotFoundException('class not exists:' . $className, $className);
         }
 
+        $this->validity = $config['validity'];
+
         $class = new \ReflectionClass($className);
         $this->handle = $class->newInstance($appKey);
     }
@@ -30,9 +33,9 @@ class Surl
      * @param  string $longUrl 长链接
      * @return string          短链接
      */
-    public function create($longUrl)
+    public function create(string $longUrl)
     {
-        return $this->handle->create($longUrl);
+        return $this->handle->create($longUrl,$this->validity);
     }
 
     /**
@@ -40,7 +43,7 @@ class Surl
      * @param  string $shortUrl 短链接
      * @return string           长链接
      */
-    public function query($shortUrl)
+    public function query(string $shortUrl)
     {
         return $this->handle->query($shortUrl);
     }

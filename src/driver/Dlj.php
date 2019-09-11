@@ -25,7 +25,7 @@ class Dlj extends Base implements Driver
      * @param  string $longUrl 长链接
      * @return string          短链接
      */
-    public function create($longUrl)
+    public function create($longUrl,$validity)
     {
         $api = $this->baseUri . '/create';
 

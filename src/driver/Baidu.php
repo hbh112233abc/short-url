@@ -8,6 +8,7 @@ namespace bingher\surl\driver;
 class Baidu extends Base implements Driver
 {
     protected $baseUri = 'https://dwz.cn/admin/v2';
+    protected $term = ['long-term','1-year'];
     protected $appKey = '';
     protected $headers;
     protected $error;
@@ -28,13 +29,13 @@ class Baidu extends Base implements Driver
     /**
      * 生成短链接
      * @param  string $longUrl 长链接
+     * @param  string $validity 有效期
      * @return string          短链接
      */
-    public function create($longUrl)
+    public function create($longUrl,$validity)
     {
         $api = $this->baseUri . '/create';
-
-        $params = ['url' => $longUrl];
+        $params = ['Url' => $longUrl,'TermOfValidity' => $validity];
         $res    = $this->post($api, $params);
         if ($res['Code'] === 0) {
             return $res['ShortUrl'];

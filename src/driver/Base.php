@@ -25,7 +25,7 @@ abstract class Base
         ];
     }
 
-    public function create($longUrl)
+    public function create($longUrl,$validity = null)
     {
         echo '创建短链接From:'.$longUrl;
     }
@@ -41,7 +41,7 @@ abstract class Base
      * @param  array  $params 传参
      * @return bool|array         接口返回json解析的数组
      */
-    public function get($api,$params = [])
+    public function get(string $api,array $params = [])
     {
         try {
             if (!empty($params)) {
@@ -83,7 +83,7 @@ abstract class Base
      * @param  array  $params 传参
      * @return bool|array         接口返回json解析的数组
      */
-    protected function post($api, $params = [])
+    protected function post(string $api, array $params = [])
     {
         try {
             // 创建连接
